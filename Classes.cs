@@ -14,7 +14,7 @@ namespace MyUnits
         public string? SecondaryWeapon { get; set; }
     }
 
-    public class Troop : Unit
+    public class Troop : Infantry
     {
         private List<Infantry> infantryList = new List<Infantry>();
 
@@ -26,20 +26,6 @@ namespace MyUnits
         public void removeUnit(Infantry infantry)
         {
             infantryList.Remove(infantry);
-        }
-    }
-    public class MechTroop : Unit
-    {
-        private List<Vehicle> vehicleList = new List<Vehicle>();
-
-        public void addUnit(Vehicle vehicle)
-        {
-           vehicleList.Add(Vehicle);
-        }
-
-        public void removeUnit(Vehicle vehicle)
-        {
-           vehicleList.Remove(vehicle);
         }
     }
 
@@ -75,6 +61,20 @@ namespace MyUnits
         }
     }
 
+ public class MechTroop : Vehicle
+    {
+        private List<Vehicle> vehicleList = new List<Vehicle>();
+
+        public void addUnit(Vehicle vehicle)
+        {
+           vehicleList.Add(Vehicle);
+        }
+
+        public void removeUnit(Vehicle vehicle)
+        {
+           vehicleList.Remove(vehicle);
+        }
+    }
     public class Tank : Vehicle
     {
 
