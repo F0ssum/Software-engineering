@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MyUnits
 {
-    public class Unit
+    public abstract class Unit
     {
         public int Health { get; set; }
         public int Damage { get; set; }
@@ -46,7 +46,7 @@ namespace MyUnits
 
     }
 
-    public class Vehicle : Unit
+    public abstract class Vehicle : Unit
     {
         public int PassengerCapacity { get; set; }
         private List<Unit> unitList = new List<Unit>();
