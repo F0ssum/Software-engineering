@@ -7,7 +7,7 @@ namespace MyUnits
 {
     public abstract class Unit
     {
-        public int Health { get; set; }
+        
         public int Damage { get; set; }
         public int Speed { get; set; }
         public int FiringRange { get; set; }
@@ -30,9 +30,24 @@ namespace MyUnits
             infantryList.Remove(infantry);
         }
     }
+    public class MechTroop : Unit
+    {
+        private List<Vehicle> vehicleList = new List<Vehicle>();
+
+        public void addUnit(Vehicle vehicle)
+        {
+           vehicleList.Add(Vehicle);
+        }
+
+        public void removeUnit(Vehicle vehicle)
+        {
+           vehicleList.Remove(vehicle);
+        }
+    }
 
     public class Infantry : Unit
-    {
+    {    
+        public int Health { get; set; }
         public string? PersonalWeapon { get; set; }
     }
 
@@ -48,7 +63,7 @@ namespace MyUnits
 
     public abstract class Vehicle : Unit
     {
-        public byte PassengerCapacity { get; set; }
+        public int FuelCapacity { get; set; }
         private List<Unit> unitList = new List<Unit>();
 
         public void AddVehicle(Unit unit)
@@ -69,43 +84,22 @@ namespace MyUnits
 
     public class Aircraft : Vehicle
     {
-
+        public int DetectionRange { get; set; }
     }
 
     public class Helicopter : Vehicle
     {
-
+        public byte PassengerCapacity { get; set; }
+        public int DetectionRange { get; set; }
     }
 
     public class Howitzer : Vehicle
     {
-
+        public int FiringRange { get; set; }
     }
 
     class Program
     {
-        public static Unit CreateUnit(int health, int damage, int speed, int firingRange, int detectionRange, string? mainWeapon = null, string? secondaryWeapon = null, string unitType = "Infantry", int PassengerCapacity = 0)
-        {
-            Unit unit;
-
-            switch (unitType)
-            {
-                case "Infantry":
-                    unit = new Infantry();
-                    break;
-                case "Vehicle":
-                    unit = new Vehicle();
-                    if (unit is Vehicle vehicle)
-                    {
-                        vehicle.PassengerCapacity = PassengerCapacity;
-                    }
-                    break;
-                default:
-                    unit = new Unit();
-                    break;
-            }   
-            
-            return unit;
-        }
+        
     }
 }
