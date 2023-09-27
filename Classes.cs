@@ -48,7 +48,7 @@ namespace MyUnits
 
     public abstract class Vehicle : Unit
     {
-        public int PassengerCapacity { get; set; }
+        public byte PassengerCapacity { get; set; }
         private List<Unit> unitList = new List<Unit>();
 
         public void AddVehicle(Unit unit)
