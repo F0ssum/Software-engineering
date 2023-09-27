@@ -10,8 +10,6 @@ namespace MyUnits
         
         public int Damage { get; set; }
         public int Speed { get; set; }
-        public int FiringRange { get; set; }
-        public int DetectionRange { get; set; }
         public string? MainWeapon { get; set; }
         public string? SecondaryWeapon { get; set; }
     }
