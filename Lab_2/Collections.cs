@@ -25,16 +25,27 @@ public class Map
 {
     private List<Terrain> terrains;
 
-    public Map()
+        public Map()
     {
-        terrains = new List<Terrain>
+        try
         {
-            new Water { Altitude = 0, SpeedReduction = 0.8, Depth = 6 },
-            new Meadow { Altitude = 10, SpeedReduction = 0.2, GrassColor = "Green" },
-            new Water { Altitude = -5, SpeedReduction = 0.9, Depth = 4 },
-            new Meadow { Altitude = 15, SpeedReduction = 0.1, GrassColor = "Yellow" },
-            new Water { Altitude = -2, SpeedReduction = 0.85, Depth = 7 }
-        };
+            terrains = new List<Terrain>
+            {
+                new Water { Altitude = 0, SpeedReduction = 0.8, Depth = 6 },
+                new Meadow { Altitude = 10, SpeedReduction = 0.2, GrassColor = "Green" },
+                new Water { Altitude = -5, SpeedReduction = 0.9, Depth = 4 },
+                new Meadow { Altitude = 15, SpeedReduction = 0.1, GrassColor = "Yellow" },
+                new Water { Altitude = -2, SpeedReduction = 0.85, Depth = 7 }
+            };
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Произошла ошибка при создании карты: {ex.Message}");
+        }
+        finally
+        {
+            Console.WriteLine("Карта создана.");
+        }
     }
 
     public int CountDeepWaters()
