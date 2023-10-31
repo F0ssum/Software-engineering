@@ -27,7 +27,7 @@ public class Map
 
         public Map()
     {
-        try
+         try
         {
             terrains = new List<Terrain>
             {
@@ -35,12 +35,22 @@ public class Map
                 new Meadow { Altitude = 10, SpeedReduction = 0.2, GrassColor = "Green" },
                 new Water { Altitude = -5, SpeedReduction = 0.9, Depth = 4 },
                 new Meadow { Altitude = 15, SpeedReduction = 0.1, GrassColor = "Yellow" },
-                new Water { Altitude = -2, SpeedReduction = 0.85, Depth = 7 }
-            };
+                new Water { Altitude = -2, SpeedReduction = 0.85, Depth = 7 },
+                new Meadow { Altitude = 20, SpeedReduction = 0.1, GrassColor = null } // Это вызовет исключение
+             };
+
+            foreach (var terrain in terrains)
+            {
+                if (terrain is Meadow meadow && meadow.GrassColor == null)
+                {
+                    throw new Exception("Поле GrassColor не может быть пустым");
+                }
+            }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Произошла ошибка при создании карты: {ex.Message}");
+            Console.WriteLine($"Стек вызовов: {ex.StackTrace}");
         }
         finally
         {
