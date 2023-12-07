@@ -5,10 +5,6 @@ using System.Threading.Tasks;
 
 namespace Lab_6
 {
-   using System;
-
-namespace Observer
-{
     public class Input
     {
         private readonly IList<IObserver> observers = new List<IObserver>();
@@ -55,6 +51,4 @@ namespace Observer
             input.Notify("exit");
         }
     }
-}
-
 }
