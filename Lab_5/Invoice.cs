@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Lab_5
+namespace Lab_5 /*Вариант 3 */
 {
     public class Invoice
     {
