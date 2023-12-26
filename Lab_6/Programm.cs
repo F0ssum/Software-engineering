@@ -5,18 +5,25 @@ using System.Threading.Tasks;
 
 namespace Lab_6
 {
-    class Program
+    public class Programm
     {
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
-        Console.WriteLine("Введите команду:");
-        string command = Console.ReadLine();
-
-        if (command == "определённая команда")
+            ConcreteObservable observable = new ConcreteObservable();
+            ConsoleObserver observer = new ConsoleObserver();
+            observable.AddObserver(observer);
+            while(true)
             {
-            Console.WriteLine("Вы ввели определённую команду!");
+                Console.WriteLine("Введите команду");
+                string command = Console.ReadLine();
+                if (command == "123")
+                {
+                    observable.NotifyObservers();
+                    Console.WriteLine("Вы ввели правильную команду");
+                    break;
+                }
             }
-        }
 
+        }
     }
 }
